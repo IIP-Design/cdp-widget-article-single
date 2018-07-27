@@ -1,0 +1,22 @@
+.cdp-branding-container {
+  align-items: center;
+  border-top: solid 1px #cccccc;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 -20px;
+  padding: 10px 20px 0;
+}
+
+.cdp-branding-item {
+  color: #5b6168;
+  display: block;
+  font-size: 12px;
+  flex-basis: 33%;
+}
+
+.cdp-branding-item a {
+  color: #5b6168;
+  text-decoration: none;
+}
