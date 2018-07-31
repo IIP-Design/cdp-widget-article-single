@@ -19,22 +19,49 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>CDP Article Single</title>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    
+    <script>
+      (function() {
+        var int = setInterval(loadWidget, 1000);
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        function loadWidget() {
+          if( CDP ) {
+            clearInterval(int);
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+            CDP.widgets.Article.new({
+              selector: '#root',
+              sites: 'share.dev.america.gov',
+              ids: 537684,
+              size: '1',
+              types: '',
+              langs: '',
+              tags: '',
+              categories: '',
+              meta: ['tags', 'author', 'date'],
+              ui: {
+                openLinkInNewWin: false,
+                layout: '',
+                direction: 'row',
+                textAlignment: 'center',
+                image: {
+                  shape: 'circle',
+                  width: '100',
+                  borderWidth: '',
+                  borderColor: '#192856',
+                  borderStyle: 'solid'
+                }
+              }
+            }).render();
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
