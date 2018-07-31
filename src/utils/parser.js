@@ -16,24 +16,24 @@ const getLogo = ( site ) => {
   return '';
 };
 
-export const normalizeItem = ( item, language ) => {
-  const source = item;
+export const normalizeItem = ( data ) => {
+  const source = data._source;
 
   const obj = {
     id: source.post_id ? source.post_id : source.id,
     site: source.site,
-    logo: getLogo( source.site ),
     sourcelink: `https://${source.site}`,
-    type: source.type,
-    // icon: getIcon( source.type ),
+    title: source.title,
     author: source.author,
-    owner: source.owner,
+    content: source.content,
+    thumbnail: source.thumbnail,
+    language: source.language,
     link: source.link || '',
     published: source.published,
-    modified: source.modified
+    modified: source.modified,
+    owner: source.owner,
+    logo: getLogo( source.site )
   };
-
-  // const typeSpecificObj = getTypeSpecObj( source );
 
   return { ...obj };
 };
