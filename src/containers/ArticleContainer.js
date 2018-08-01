@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ArticleItem from '../components/Article/Article';
 import Branding from '../components/Branding/Branding';
+
 import { getItemRequest } from '../utils/api';
 import { normalizeItem } from '../utils/parser';
+import Placeholder from '../components/Placeholder/Placeholder';
 
 class ArticleContainer extends Component {
   constructor( props ) {
@@ -22,7 +24,7 @@ class ArticleContainer extends Component {
     const item = this.props.config;
     
     getItemRequest( item.sites, item.ids )
-      .then( response => this.onFetchResult( response ) );
+      .then( response => this.onFetchResult( response ), error => this.onError( error ) );
   }
 
   onFetchResult = ( response ) => {
@@ -36,13 +38,20 @@ class ArticleContainer extends Component {
       } );
     }
   }
+
+  onError = ( error ) => {
+    this.setState( {
+      error,
+      isLoading: false,
+    } );
+  }
   
   render() {
     const { error, isLoading, data } = this.state;
     if ( error ) {
       return <div>Error: { error.message }</div>
     } else if (isLoading) {
-      return <div>Loading...</div>
+      return <Placeholder />
     } else {
       return (
         <div>

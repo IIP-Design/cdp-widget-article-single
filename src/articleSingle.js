@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArticleContainer from './containers/ArticleCointainer';
+import ArticleContainer from './containers/ArticleContainer';
 
 import './articleSingle.css';
 
