@@ -4,6 +4,8 @@ import Branding from '../components/Branding/Branding';
 
 import { getItemRequest } from '../utils/api';
 import { normalizeItem } from '../utils/parser';
+import trans from '../utils/translations';
+
 import Placeholder from '../components/Placeholder/Placeholder';
 
 class ArticleContainer extends Component {
@@ -12,7 +14,8 @@ class ArticleContainer extends Component {
     this.state = {
       error: null,
       isLoading: true,
-      data: {}
+      data: {},
+      translations: trans.en
     };
   }
 
@@ -29,12 +32,17 @@ class ArticleContainer extends Component {
 
   onFetchResult = ( response ) => {
     if ( response && response.hits.total > 0 ) {
-      console.log(response);
       const data = normalizeItem( response.hits.hits[0] );
+      let lang = trans[data.language.language_code];
+      
+      if ( !lang ) {
+        lang = trans.en
+      }     
       
       this.setState( {
-        data,
         isLoading: false,
+        data,
+        translations: lang
       } );
     }
   }
@@ -47,16 +55,16 @@ class ArticleContainer extends Component {
   }
   
   render() {
-    const { error, isLoading, data } = this.state;
+    const { error, isLoading, data, translations } = this.state;
     if ( error ) {
-      return <div>Error: { error.message }</div>
-    } else if (isLoading) {
+      return <div className="cdp-error-message">Error: { error.message }</div>
+    } else if ( isLoading ) {
       return <Placeholder />
     } else {
       return (
-        <div>
-          <ArticleItem data={ data } />
-          <Branding data={ data } />
+        <div className="cdp-article-single-container">
+          <ArticleItem data={ data } lang={ translations } />
+          <Branding data={ data } lang={ translations } />
         </div>
       )
     }

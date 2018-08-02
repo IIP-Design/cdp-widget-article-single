@@ -6,7 +6,7 @@ import './articleSingle.css';
 class ArticleSingle extends Component {
   render() {
     return (
-      <div className="cdp-single-article">
+      <div className="cdp-single">
         <ArticleContainer config={ this.props } />
       </div>
     );

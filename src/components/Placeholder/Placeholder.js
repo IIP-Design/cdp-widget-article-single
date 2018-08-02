@@ -13,6 +13,7 @@ const Placeholder = () => (
   <div style={ style }>
     <p>Loading...</p>
     <img className="cdp-article-single-img" src={paragraph} alt=""/>
+    <p></p>
     <img className="cdp-article-single-img" src={paragraph} alt=""/>
   </div>
 );

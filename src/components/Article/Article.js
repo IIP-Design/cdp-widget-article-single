@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { setLocale } from '../../utils/localization';
+import { setDateLocale } from '../../utils/localization';
 
 import './Article.css';
 
@@ -9,7 +9,7 @@ class ArticleItem extends Component {
   render(){
     const data = this.props.data;
     
-    setLocale(data.language.language_code);
+    setDateLocale(data.language.language_code);
     const date = moment(data.published).format( 'LL' );
 
     return (

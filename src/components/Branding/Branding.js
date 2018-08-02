@@ -5,6 +5,8 @@ import './Branding.css';
 class Branding extends Component {
  render(){
   const data = this.props.data;
+  const lang = this.props.lang;
+
   return (
       <div className="cdp-branding-container">
         <div className="cdp-branding-item" style={{textAlign: 'left'}}>
@@ -13,9 +15,9 @@ class Branding extends Component {
           </a>
         </div>
         <div className="cdp-branding-item" style={{textAlign: 'center'}}>
-          <a href={ data.link } target="_blank" rel="noopener noreferrer">View Original</a>
+          <a href={ data.link } target="_blank" rel="noopener noreferrer" style={{direction: `${lang.textDirection}`}}>{ lang.viewOriginal }</a>
         </div>
-        <div className="cdp-branding-item" style={{textAlign: 'right'}}>Brought to you by the CDP</div>
+        <div className="cdp-branding-item" style={{textAlign: 'right', direction: `${lang.textDirection}`}}>{ lang.broughtToYou}</div>
       </div>
     )
   }
