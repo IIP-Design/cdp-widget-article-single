@@ -29,6 +29,7 @@ export const normalizeItem = ( data ) => {
     thumbnail: source.thumbnail,
     language: source.language,
     link: source.link || '',
+    slug: source.slug,
     published: source.published,
     modified: source.modified,
     owner: source.owner,

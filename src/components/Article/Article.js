@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { setDateLocale } from '../../utils/localization';
+import { initGA, logPageview, logCDPEvent } from '../../utils/ga';
 
 import './Article.css';
 
@@ -11,6 +12,11 @@ class ArticleItem extends Component {
     
     setDateLocale(data.language.language_code);
     const date = moment(data.published).format( 'LL' );
+    
+    // Initiate Google Analytics events
+    initGA(data.site);
+    logPageview(data.slug);
+    logCDPEvent(data.title)
 
     return (
       <div className="cdp-article-single">
