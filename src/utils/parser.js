@@ -1,4 +1,5 @@
 import moment from 'moment';
+
 import { setDateLocale } from './localization';
 
 import logoYali from '../assets/logo_yali.svg';

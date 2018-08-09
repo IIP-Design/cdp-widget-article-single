@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bodybuilder": "^2.2.11",
+    "html-react-parser": "^0.4.6",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
