@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import ArticleContainer from './containers/ArticleContainer';
 
 import './articleSingle.css';
 
-class ArticleSingle extends Component {
-  render() {
-    return (
-      <div className="cdp-single">
-        <ArticleContainer config={ this.props } />
-      </div>
-    );
-  }
-}
+const ArticleSingle = props => (
+  <div className="cdp-single">
+    <ArticleContainer config={ props } />
+  </div>
+);
 
 export default ArticleSingle;

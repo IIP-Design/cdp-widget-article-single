@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { setDateLocale } from './localization';
+
 import logoYali from '../assets/logo_yali.svg';
 import logoYlai from '../assets/logo_ylai.svg';
 import logoShareamerica from '../assets/logo_shareamerica.svg';
@@ -16,24 +19,31 @@ const getLogo = ( site ) => {
   return '';
 };
 
+const getDate = ( lang, date ) => {
+  setDateLocale( lang );
+  const localizedDate = moment( date ).format( 'LL' );
+  return localizedDate;
+};
+
 export const normalizeItem = ( data ) => {
   const source = data._source;
 
   const obj = {
-    id: source.post_id ? source.post_id : source.id,
-    site: source.site,
-    sourcelink: `https://${source.site}`,
-    title: source.title,
     author: source.author,
     content: source.content,
-    thumbnail: source.thumbnail,
+    date: getDate( source.language.language_code, source.published ),
+    id: source.post_id ? source.post_id : source.id,
     language: source.language,
     link: source.link || '',
-    slug: source.slug,
-    published: source.published,
+    logo: getLogo( source.site ),
     modified: source.modified,
     owner: source.owner,
-    logo: getLogo( source.site )
+    published: source.published,
+    site: source.site,
+    slug: source.slug,
+    sourcelink: `https://${source.site}`,
+    thumbnail: source.thumbnail,
+    title: source.title
   };
 
   return { ...obj };

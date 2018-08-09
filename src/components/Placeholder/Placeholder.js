@@ -7,14 +7,14 @@ const style = {
   textAlign: 'center',
   fontFamily: 'sans-serif',
   fontSize: '13px'
-}
+};
 
 const Placeholder = () => (
   <div style={ style }>
     <p>Loading...</p>
-    <img className="cdp-article-single-img" src={paragraph} alt=""/>
-    <p></p>
-    <img className="cdp-article-single-img" src={paragraph} alt=""/>
+    <img className="cdp-article-single-img" src={ paragraph } alt="" />
+    <p />
+    <img className="cdp-article-single-img" src={ paragraph } alt="" />
   </div>
 );
 

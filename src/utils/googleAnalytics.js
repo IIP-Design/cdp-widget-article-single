@@ -7,37 +7,42 @@ const analyticsIds = [
 ];
 
 const getUAIds = ( site ) => {
-  const analyticsId = analyticsIds.filter( id => site.indexOf( id.name ) > -1 );  
+  const analyticsId = analyticsIds.filter( id => site.indexOf( id.name ) > -1 );
   if ( analyticsId[0] && analyticsId[0].id ) {
-    
     return analyticsId[0].id;
   }
   return '';
 };
 
-export const initGA = function( site ) {
+function initGA( site ) {
   const id = getUAIds( site );
   ReactGA.initialize( id, {
     debug: true
-  });
+  } );
 }
 
-export const logPageview = function( url ) {
-  ReactGA.pageview( url )
+function logPageview( url ) {
+  ReactGA.pageview( url );
 }
 
-export const logCDPEvent = function( title ) {
-  ReactGA.event({
+function logCDPEvent( title ) {
+  ReactGA.event( {
     category: 'CDP Embed',
     action: 'Viewed as embedded article',
     label: title
-  });  
+  } );
 }
 
-export const referralClickEvent = function( title ) {
-  ReactGA.event({
+export function initiateAnalytics( data ) {
+  initGA( data.site );
+  logPageview( data.slug );
+  logCDPEvent( data.title );
+}
+
+export function referralClickEvent( title ) {
+  ReactGA.event( {
     category: 'CDP Referral',
     action: 'Inbound referral from embedded article',
     label: title
-  });  
+  } );
 }

@@ -11,4 +11,4 @@ export const getItemRequest = ( site, postId ) =>
         .query( 'query_string', 'query', `(site: ${site} AND post_id: ${postId})` )
         .build()
     } )
-    .then( response => response.data )
+    .then( response => response.data );
