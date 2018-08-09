@@ -56,7 +56,8 @@ class ArticleContainer extends Component {
     const { config } = this.props;
 
     getItemRequest( config.sites, config.ids )
-      .then( response => this.onFetchResult( response ), error => this.onError( error ) );
+      .then( response => this.onFetchResult( response ) )
+      .catch( error => this.onError( error ) );
   }
 
   render() {
