@@ -3,49 +3,50 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <link rel="stylesheet" href="https://s3.amazonaws.com/iip-design-dev-modules/modules/cdp-module-article-single/main.6d7d089e.css">
+    <script src="https://s3.amazonaws.com/iip-design-dev-modules/modules/cdp-module-article-single/main.f08b5907.js"></script>
+    <script src="https://s3.amazonaws.com/iip-design-dev-modules/modules/cdp-module-article-single/iframe-resizer-iframe.min.js"></script>
     <title>CDP Article Single</title>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
     
-    <script>
-      (function() {
+    <div id="cdp-article-embed"></div>
+    
+    <script>  
+      function loadCDPModule( queryId, querySite ) {  
         var int = setInterval(loadWidget, 1000);
-
         function loadWidget() {
+          
+          clearInterval(int);
+          
           if( CDP ) {
-            clearInterval(int);
-
             CDP.widgets.Article.new({
-              selector: '#root',
-              sites: 'share.dev.america.gov',
-              ids: 510041,
-              langs: '',
-              tags: '',
-              categories: '',
-              meta: ['tags', 'author', 'date'],
+              selector: '#cdp-article-embed',
+              sites: querySite,
+              ids: queryId
             }).render();
           }
         }
+      }
+
+      (function getParams() {
+        function getURLParameter( param ) {
+          let pageUrl = window.location.search.substring(1);
+          let urlParams = pageUrl.split('&');
+          for (let i = 0; i < urlParams.length; i++) {
+            let paramName = urlParams[i].split('=');
+            if (paramName[0] == param) {
+              return paramName[1];
+            }
+          }
+        }
+        let queryId = getURLParameter('id');
+        let querySite = getURLParameter('site');
+        
+        loadCDPModule( queryId, querySite )
       })();
     </script>
   </body>

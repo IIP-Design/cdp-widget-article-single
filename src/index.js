@@ -20,10 +20,6 @@ export const widgets = {
             query={ config.query }
             sites={ config.sites }
             ids={ config.ids }
-            langs={ config.langs }
-            tags={ config.tags }
-            categories={ config.categories }
-            meta={ config.meta }
           />, document.querySelector( config.selector ) );
         }
       };
