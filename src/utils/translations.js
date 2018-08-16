@@ -3,55 +3,55 @@ const trans = {
     locale: 'en',
     language: 'English',
     viewOriginal: 'View Original',
-    broughtToYou: 'Brought to you by the CDP',
+    broughtToYou: 'Presented by Content Commons',
     textDirection: 'ltr'
   },
   ar: {
     locale: 'ar',
     language: 'Arabic',
     viewOriginal: 'عرض الأصلي',
-    broughtToYou: 'يوجه اليكم من CDP',
+    broughtToYou: 'يوجه اليكم من Content Commons',
     textDirection: 'rtl'
   },
   es: {
     locale: 'es',
     language: 'Spanish',
     viewOriginal: 'Ver original',
-    broughtToYou: 'Presentado por el CDP',
+    broughtToYou: 'Presentado por el Content Commons',
     textDirection: 'ltr'
   },
   fa: {
     locale: 'fa',
     language: 'Persian',
     viewOriginal: 'مشاهده اصلی',
-    broughtToYou: 'توسط CDP برای شما به ارمغان آورد',
+    broughtToYou: 'توسط Content Commons برای شما به ارمغان آورد',
     textDirection: 'rtl'
   },
   fr: {
     locale: 'fr',
     language: 'French',
     viewOriginal: 'Voir l\'original',
-    broughtToYou: 'Apporté par le CDP',
+    broughtToYou: 'Apporté par le Content Commons',
     textDirection: 'ltr'
   },
   id: {
     locale: 'id',
     language: 'Bahasa Indonesia',
     viewOriginal: 'Lihat asli',
-    broughtToYou: 'Dibawa ke Anda oleh CDP'
+    broughtToYou: 'Dibawa ke Anda oleh Content Commons'
   },
   'pt-br': {
     locale: 'pt-br',
     language: 'Portuguese',
     viewOriginal: 'Ver original',
-    broughtToYou: 'Trazido a você pelo CDP',
+    broughtToYou: 'Trazido a você pelo Content Commons',
     textDirection: 'ltr'
   },
   ru: {
     locale: 'ru',
     language: 'Russian',
     viewOriginal: 'просмотреть оригинал',
-    broughtToYou: 'Привлечены к вам CDP',
+    broughtToYou: 'Привлечены к вам Content Commons',
     textDirection: 'ltr'
   },
   ur: {
@@ -65,7 +65,7 @@ const trans = {
     locale: 'zh-hans',
     language: 'Chinese',
     viewOriginal: '查看原文',
-    broughtToYou: '由CDP带给您',
+    broughtToYou: '由Content Commons带给您',
     textDirection: 'ltr'
   }
 };

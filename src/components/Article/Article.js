@@ -5,7 +5,7 @@ import { object } from 'prop-types';
 import './Article.css';
 
 const ArticleItem = ( { data } ) => (
-  <div className="cdp-article-single">
+  <article className="cdp-article-single">
     <div className="cdp-article-single-media">
       <img className="cdp-article-single-img aligncenter" src={ data.thumbnail } alt="" />
     </div>
@@ -14,7 +14,7 @@ const ArticleItem = ( { data } ) => (
       <div className="cdp-article-single-meta">{ `${data.author.name} - ${data.date}` }</div>
       <div className="cdp-article-single-content"> { Parser( data.content ) } </div>
     </div>
-  </div>
+  </article>
 );
 
 ArticleItem.propTypes = {

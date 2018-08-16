@@ -18,10 +18,10 @@ class Branding extends Component {
     const { lang } = this.props;
 
     return (
-      <div className="cdp-branding-container">
+      <section className="cdp-branding-container">
         <div className="cdp-branding-item" style={ { textAlign: 'left' } }>
           <a href={ `https://${data.site}` } target="_blank" rel="noopener noreferrer" onClick={ this.handleClickHome }>
-            <img src={ data.logo } alt={ data.owner } style={ { maxWidth: '200px' } } />
+            <img src={ data.logo } alt={ data.owner } style={ { maxWidth: '200px', maxHeight: '20px' } } />
           </a>
         </div>
         <div className="cdp-branding-item" style={ { textAlign: 'center' } }>
@@ -39,9 +39,11 @@ class Branding extends Component {
           className="cdp-branding-item"
           style={ { textAlign: 'right', direction: `${lang.textDirection}` } }
         >
-          { lang.broughtToYou }
+          <a href="https://commons.america.gov/" target="_blank" rel="noopener noreferrer">
+            { lang.broughtToYou }
+          </a>
         </div>
-      </div>
+      </section>
     );
   }
 }
