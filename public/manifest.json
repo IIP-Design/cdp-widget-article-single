@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CDP Article",
+  "name": "CDP Single Article Module",
   "icons": [
     {
       "src": "favicon.ico",
