@@ -14,6 +14,10 @@
   height: auto;
 }
 
+.cdp-article-single-content {
+  padding: 10px 0;
+}
+
 .alignleft {
   float: left;
   margin-right: 1em;
