@@ -6,11 +6,11 @@ const loadModule = () => {
     const css = document.createElement( 'link' );
     css.setAttribute( 'rel', 'stylesheet' );
     css.setAttribute( 'type', 'text/css' );
-    css.setAttribute( 'href', `${process.env.PUBLIC_URL}/cpd-module-article-single.min.css` );
+    css.setAttribute( 'href', `${process.env.PUBLIC_URL}/cdp-module-article-single.min.css` );
     document.head.appendChild( css );
 
     const script = document.createElement( 'script' );
-    script.src = `${process.env.PUBLIC_URL}/cpd-module-article-single.min.js`;
+    script.src = `${process.env.PUBLIC_URL}/cdp-module-article-single.min.js`;
     script.defer = true;
     document.body.appendChild( script );
 
