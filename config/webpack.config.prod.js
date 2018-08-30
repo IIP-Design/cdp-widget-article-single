@@ -3,7 +3,6 @@
 const autoprefixer = require( 'autoprefixer' );
 const path = require( 'path' );
 const webpack = require( 'webpack' );
-const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
@@ -247,7 +246,6 @@ module.exports = {
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In production, it will be an empty string unless you specify "homepage"
     // in `package.json`, in which case it will be the pathname of that URL.
-    new CopyWebpackPlugin( [{ from: 'src/assets/js', to: 'static/js' }] ),
     new InterpolateHtmlPlugin( env.raw ),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin( {
