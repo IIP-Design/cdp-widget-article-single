@@ -10,7 +10,8 @@ class Branding extends Component {
   }
 
   handleClickOriginal = () => {
-    referralClickEvent( this.props.data.title );
+    const { title } = this.props.data;
+    referralClickEvent( title );
   }
 
   render() {

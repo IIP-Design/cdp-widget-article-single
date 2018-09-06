@@ -20,6 +20,7 @@ function initGA( site ) {
     {
       trackingId: id,
       gaOptions: {
+        name: 'CDPtracker',
         userId: 'CDP'
       }
     }, {
@@ -27,11 +28,10 @@ function initGA( site ) {
       alwaysSendToDefaultTracker: false
     }
   ] );
-  ReactGA.set( { userId: 'CDP' } );
 }
 
 function logPageview( url ) {
-  ReactGA.pageview( url );
+  ReactGA.pageview( url, ['CDPtracker'] );
 }
 
 function logCDPEvent( title ) {
@@ -39,7 +39,7 @@ function logCDPEvent( title ) {
     category: 'CDP Embed',
     action: 'Viewed as embedded article',
     label: title
-  } );
+  }, ['CDPtracker'] );
 }
 
 export function initiateAnalytics( data ) {
@@ -53,5 +53,5 @@ export function referralClickEvent( title ) {
     category: 'CDP Referral',
     action: 'Inbound referral from embedded article',
     label: title
-  } );
+  }, ['CDPtracker'] );
 }
