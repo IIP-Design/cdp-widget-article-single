@@ -16,9 +16,18 @@ const getUAIds = ( site ) => {
 
 function initGA( site ) {
   const id = getUAIds( site );
-  ReactGA.initialize( id, {
-    debug: true
-  } );
+  ReactGA.initialize( [
+    {
+      trackingId: id,
+      gaOptions: {
+        userId: 'CDP'
+      }
+    }, {
+      debug: true,
+      alwaysSendToDefaultTracker: false
+    }
+  ] );
+  ReactGA.set( { userId: 'CDP' } );
 }
 
 function logPageview( url ) {
