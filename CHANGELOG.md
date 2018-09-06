@@ -1,6 +1,14 @@
 # Change Log
 ##### All notable changes to this project will be documented in this file.
 
+## 1.0.0
+
+**Features:**
+- Add version bump package
+
+**Bug Fixes:**
+- Attach custom tracker name to Google Analytics events so data sent to correct property
+
 ## Initial Release
 
 **Features:**
