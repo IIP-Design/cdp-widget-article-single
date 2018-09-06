@@ -23,11 +23,8 @@ function initGA( site ) {
         name: 'CDPtracker',
         userId: 'CDP'
       }
-    }, {
-      debug: true,
-      alwaysSendToDefaultTracker: false
     }
-  ] );
+  ], { alwaysSendToDefaultTracker: false } );
 }
 
 function logPageview( url ) {
