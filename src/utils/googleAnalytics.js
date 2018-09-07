@@ -32,9 +32,10 @@ function logPageview( url ) {
 }
 
 function logCDPEvent( title ) {
+  const hostDomain = window.location.hostname;
   ReactGA.event( {
-    category: 'CDP Embed',
-    action: 'Viewed as embedded article',
+    category: 'CDP Embed View',
+    action: `Viewed on ${hostDomain}`,
     label: title
   }, ['CDPtracker'] );
 }
@@ -46,9 +47,10 @@ export function initiateAnalytics( data ) {
 }
 
 export function referralClickEvent( title ) {
+  const hostDomain = window.location.hostname;
   ReactGA.event( {
     category: 'CDP Referral',
-    action: 'Inbound referral from embedded article',
+    action: `Inbound referral from ${hostDomain}`,
     label: title
   }, ['CDPtracker'] );
 }
