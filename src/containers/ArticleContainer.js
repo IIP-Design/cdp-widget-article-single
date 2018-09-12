@@ -17,6 +17,7 @@ class ArticleContainer extends Component {
     this.state = {
       error: null,
       isLoading: true,
+      noResults: false,
       data: {},
       translations: trans.en
     };
@@ -34,7 +35,13 @@ class ArticleContainer extends Component {
   }
 
   onFetchResult = ( response ) => {
-    if ( response && response.hits.total > 0 ) {
+    if ( response && response.hits.total === 0 ) {
+      console.log( 'Your request returned no responses. Please double check the post ID and index.' );
+      this.setState( {
+        isLoading: false,
+        noResults: true
+      } );
+    } else if ( response && response.hits.total > 0 ) {
       const data = normalizeItem( response.hits.hits[0] );
       let lang = trans[data.language.language_code];
 
@@ -62,13 +69,20 @@ class ArticleContainer extends Component {
 
   render() {
     const {
-      error, isLoading, data, translations
+      error, isLoading, noResults, data, translations
     } = this.state;
 
     if ( error ) {
-      return <div className="cdp-error-message">Error: { error.message }</div>;
+      return (
+        <div className="cdp-error-message" style={ { textAlign: 'center' } }>
+          <p>The requested content is currently unavailable due to the following error:</p>
+          <p>{ error.message }</p>
+        </div>
+      );
     } else if ( isLoading ) {
       return <Placeholder />;
+    } else if ( noResults ) {
+      return <div style={ { textAlign: 'center' } }>The requested content is currently unavailable</div>;
     }
 
     return (
