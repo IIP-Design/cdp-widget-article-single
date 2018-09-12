@@ -28,6 +28,7 @@ class ArticleContainer extends Component {
   }
 
   onError = ( error ) => {
+    console.log( `Error: ${error.message}` );
     this.setState( {
       error,
       isLoading: false
@@ -36,7 +37,7 @@ class ArticleContainer extends Component {
 
   onFetchResult = ( response ) => {
     if ( response && response.hits.total === 0 ) {
-      console.log( 'Your request returned no responses. Please double check the post ID and index.' );
+      console.log( 'Your request returned no responses. This could be because the owner has removed this content. Please double check the post ID and index in your request.' );
       this.setState( {
         isLoading: false,
         noResults: true
@@ -74,15 +75,18 @@ class ArticleContainer extends Component {
 
     if ( error ) {
       return (
-        <div className="cdp-error-message" style={ { textAlign: 'center' } }>
-          <p>The requested content is currently unavailable due to the following error:</p>
-          <p>{ error.message }</p>
+        <div className="cdp-error-message" style={ { textAlign: 'center', margin: '3em 0' } }>
+          <h3>Sorry, there appears to have been an error while retrieving this content.</h3>
         </div>
       );
     } else if ( isLoading ) {
       return <Placeholder />;
     } else if ( noResults ) {
-      return <div style={ { textAlign: 'center' } }>The requested content is currently unavailable</div>;
+      return (
+        <div className="cdp-error-message" style={ { textAlign: 'center', margin: '3em 0' } }>
+          <h3>Sorry, it looks like this content is currently unavailable.</h3>
+        </div>
+      );
     }
 
     return (
