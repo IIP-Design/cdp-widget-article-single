@@ -4,8 +4,8 @@ import { object } from 'prop-types';
 
 import './Article.css';
 
-const ArticleItem = ( { data } ) => (
-  <article className="cdp-article-single">
+const ArticleItem = ( { data, lang } ) => (
+  <article className="cdp-article-single" style={ { direction: `${lang.textDirection}` } }>
     <div className="cdp-article-single-media">
       <img className="cdp-article-single-img aligncenter" src={ data.thumbnail } alt={ data.thumbnailMeta.alt } />
       <figcaption>{ data.thumbnailMeta.caption }</figcaption>
@@ -19,7 +19,8 @@ const ArticleItem = ( { data } ) => (
 );
 
 ArticleItem.propTypes = {
-  data: object
+  data: object,
+  lang: object
 };
 
 export default ArticleItem;

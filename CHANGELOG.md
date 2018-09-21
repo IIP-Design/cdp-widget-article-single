@@ -7,6 +7,9 @@
 - Change function that fetches featured image to work with new API schema
 - Add alt-text and captions to the article featured image
 
+**Bug Fixes:**
+- Add right-to-left support for article content
+
 ## 1.0.2
 
 **Features:**
