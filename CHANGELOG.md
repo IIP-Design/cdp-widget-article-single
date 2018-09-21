@@ -1,6 +1,12 @@
 # Change Log
 ##### All notable changes to this project will be documented in this file.
 
+## 1.0.3
+
+**Features:**
+- Change function that fetches featured image to work with new API schema
+- Add alt-text and captions to the article featured image
+
 ## 1.0.2
 
 **Features:**

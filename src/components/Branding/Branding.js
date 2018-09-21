@@ -29,7 +29,7 @@ class Branding extends Component {
           <a
             href={ data.link }
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             style={ { direction: `${lang.textDirection}` } }
             onClick={ this.handleClickOriginal }
           >

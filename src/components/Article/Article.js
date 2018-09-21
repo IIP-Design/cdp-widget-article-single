@@ -7,7 +7,8 @@ import './Article.css';
 const ArticleItem = ( { data } ) => (
   <article className="cdp-article-single">
     <div className="cdp-article-single-media">
-      <img className="cdp-article-single-img aligncenter" src={ data.thumbnail } alt="" />
+      <img className="cdp-article-single-img aligncenter" src={ data.thumbnail } alt={ data.thumbnailMeta.alt } />
+      <figcaption>{ data.thumbnailMeta.caption }</figcaption>
     </div>
     <div className="cdp-article-single-content">
       <h1 className="cdp-article-single-title">{ data.title }</h1>

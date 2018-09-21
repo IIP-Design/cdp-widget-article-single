@@ -3,7 +3,7 @@ const trans = {
     locale: 'en',
     language: 'English',
     viewOriginal: 'View Original',
-    broughtToYou: 'Presented by Content Commons',
+    broughtToYou: 'Powered by Content Commons',
     textDirection: 'ltr'
   },
   ar: {

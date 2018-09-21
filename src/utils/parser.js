@@ -27,12 +27,21 @@ const getDate = ( lang, date ) => {
 };
 
 const getImage = ( thumbnail ) => {
-  if ( thumbnail.large !== null ) {
-    return thumbnail.large.url;
-  } else if ( thumbnail.full !== null ) {
-    return thumbnail.full.url;
+  if ( thumbnail.size.large !== null ) {
+    return thumbnail.size.large.url;
+  } else if ( thumbnail.size.full !== null ) {
+    return thumbnail.size.full.url;
   }
   return '';
+};
+
+const getImageMeta = ( thumbnail ) => {
+  const imageMeta = {
+    alt: ( thumbnail.alt ? thumbnail.alt : ' ' ),
+    caption: ( thumbnail.caption ? thumbnail.caption : '' )
+  };
+
+  return imageMeta;
 };
 
 export const normalizeItem = ( data ) => {
@@ -53,6 +62,7 @@ export const normalizeItem = ( data ) => {
     slug: source.slug,
     sourcelink: `https://${source.site}`,
     thumbnail: getImage( source.thumbnail ),
+    thumbnailMeta: getImageMeta( source.thumbnail ),
     title: source.title
   };
 
