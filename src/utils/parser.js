@@ -27,10 +27,10 @@ const getDate = ( lang, date ) => {
 };
 
 const getImage = ( thumbnail ) => {
-  if ( thumbnail.size.large !== null ) {
-    return thumbnail.size.large.url;
-  } else if ( thumbnail.size.full !== null ) {
-    return thumbnail.size.full.url;
+  if ( thumbnail.sizes.large !== null ) {
+    return thumbnail.sizes.large.url;
+  } else if ( thumbnail.sizes.full !== null ) {
+    return thumbnail.sizes.full.url;
   }
   return '';
 };
