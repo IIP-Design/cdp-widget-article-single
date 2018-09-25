@@ -14,8 +14,16 @@
   height: auto;
 }
 
+.cdp-article-single-media {
+  margin-bottom: 26px;
+}
+
 .cdp-article-single-content {
   padding: 10px 0;
+}
+
+.cdp-article-single-title {
+  margin-top: 0;
 }
 
 .alignleft {

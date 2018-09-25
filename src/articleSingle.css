@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 .cdp-single {
   border: solid 1px #f1f1f1;
   padding: 20px 20px 10px;
