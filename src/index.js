@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import ArticleSingle from './articleSingle';
 
-import './index.css';
+import './articleSingle.css';
 
 export const widgets = {
   Article: {

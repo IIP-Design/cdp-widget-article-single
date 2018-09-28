@@ -26,13 +26,13 @@ const getDate = ( lang, date ) => {
   return localizedDate;
 };
 
-const getImage = ( thumbnail ) => {
-  if ( thumbnail.size.large !== null ) {
-    return thumbnail.size.large.url;
-  } else if ( thumbnail.size.full !== null ) {
-    return thumbnail.size.full.url;
+const getImage = ( thumbnails ) => {
+  if ( thumbnails.large && thumbnails.large.url ) {
+    return thumbnails.large.url;
+  } else if ( thumbnails.full && thumbnails.full.url ) {
+    return thumbnails.full.url;
   }
-  return '';
+  return null;
 };
 
 const getImageMeta = ( thumbnail ) => {
@@ -46,6 +46,8 @@ const getImageMeta = ( thumbnail ) => {
 
 export const normalizeItem = ( data ) => {
   const source = data._source;
+  const thumbnail = ( ( source || {} ).thumbnail || {} );
+  const thumbnails = ( thumbnail.sizes || {} );
 
   const obj = {
     author: source.author,
@@ -61,8 +63,8 @@ export const normalizeItem = ( data ) => {
     site: source.site,
     slug: source.slug,
     sourcelink: `https://${source.site}`,
-    thumbnail: getImage( source.thumbnail ),
-    thumbnailMeta: getImageMeta( source.thumbnail ),
+    thumbnail: getImage( thumbnails ),
+    thumbnailMeta: getImageMeta( thumbnail ),
     title: source.title
   };
 
