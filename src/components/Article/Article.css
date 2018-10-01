@@ -1,7 +1,11 @@
+.cdp-article-single figure {
+  max-width: 100%;
+}
+
 .cdp-article-single figcaption {
   color: #5b6168;
   font-size: 14px;
-  padding-top: 5px;
+  padding: 5px 0;
 }
 
 .cdp-article-single iframe {
@@ -39,7 +43,8 @@
   margin-left: 1em;
 }
 
-.aligncenter {
+.aligncenter,
+.alignnone {
   display: block;
   margin: 0 auto;
 }
