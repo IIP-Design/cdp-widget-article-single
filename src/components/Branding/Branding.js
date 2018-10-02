@@ -22,14 +22,14 @@ class Branding extends Component {
       <section className="cdp-branding-container">
         <div className="cdp-branding-item" style={ { textAlign: 'left' } }>
           <a href={ `https://${data.site}` } target="_blank" rel="noopener noreferrer" onClick={ this.handleClickHome }>
-            <img src={ data.logo } alt={ data.owner } style={ { maxWidth: '200px', maxHeight: '20px' } } />
+            <img className="cdp-branding-logo" src={ data.logo } alt={ data.owner } />
           </a>
         </div>
         <div className="cdp-branding-item" style={ { textAlign: 'center' } }>
           <a
             href={ data.link }
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             style={ { direction: `${lang.textDirection}` } }
             onClick={ this.handleClickOriginal }
           >
